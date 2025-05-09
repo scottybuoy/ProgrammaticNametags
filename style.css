@@ -5,15 +5,15 @@ body {
 #app-cont {
     display: flex;
     flex-wrap: wrap;
-    width: 1000px;
+    width: 1200px;
 }
 
 .nametag-cont {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 400px;
-    height: 250px;
+    width: 500px;
+    height: 350px;
     border: 1px black solid;
 }
 
