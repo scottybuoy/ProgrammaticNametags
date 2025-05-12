@@ -52,7 +52,12 @@ const createNameTags = () => {
     font-size: 20px;
     margin-top: 20px;
     color: rgb(19, 97, 199)
-}`;
+}
+
+#page-break-target {
+    break-after: page;
+}
+`;
 
 nameTagWindow.document.write(`<!DOCTYPE html>
     <html lang="en">
@@ -68,6 +73,7 @@ nameTagWindow.document.write(`<!DOCTYPE html>
     </html>`);
 
 const writeNameTags = (students) => {
+    let nametagNum = 1;
     for (let student of students) {
         let nameTagCont = document.createElement('div');
         nameTagCont.setAttribute('class', 'nametag-cont');
@@ -79,6 +85,13 @@ const writeNameTags = (students) => {
         classEl.textContent = student.studentClass;
         nameTagCont.append(nameEl, classEl);
         nameTagWindow.document.getElementById('app-cont').append(nameTagCont);
+
+        // add page-break if nametag is last that fits on page
+        if (nametagNum===8) {
+            nameTagCont.setAttribute('id', 'page-break-target');
+            nametagNum = 0;
+        }
+        nametagNum++;
     }
 };
 
